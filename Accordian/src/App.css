@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin-right: 200px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.accordians {
+  width: 500px;
+  border-radius: 5px;
+}
+
+.accordian-item {
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+}
+
+.accordian-title {
+  background-color: #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.accordian-title:hover {
+  background-color: #d3d3d3;
+  /* Darker grey on hover */
+}
+
+.accordian-title h3 {
+  margin: 0;
+  color: #333;
+  /* Dark text color */
+}
+
+.accordian-title span {
+  font-size: 20px;
+  color: #007bff;
+  /* Blue color for the plus sign */
+}
+
+.accordian-info {
+  padding: 10px;
+  background-color: #f9f9f9;
+  /* Light grey background for info */
+  color: #555;
+  /* Dark grey text color */
+}
