@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [color, setColor] = useState('');
+  const [colorSystem, setcolorSystem] = useState('Hexagonal');
+
+  function getRandomHexaColor() {
+    let colorValue = '#';
+    const hexDigits = '0123456789ABCDEF';
+    for (let i = 0; i < 6; i++) {
+      colorValue += hexDigits[Math.floor(Math.random() * 16)];
+    }
+    setColor(colorValue);
+  }
+
+  function getRandomRGBColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    setColor(`rgb(${r}, ${g}, ${b})`);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="app" style={{ backgroundColor: color }}>
+      <div className="button-container">
+        <button onClick={() => setcolorSystem('Hexagonal')}>Hexagonal</button>
+        <button onClick={() => setcolorSystem('RGB')}>RGB</button>
+        <button
+          onClick={
+            colorSystem === 'Hexagonal' ? getRandomHexaColor : getRandomRGBColor
+          }
+        >
+          Generate Random Color
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="color-display">
+        <h2>Color System : {colorSystem}</h2>
+        <p className="color-value">{color}</p>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
